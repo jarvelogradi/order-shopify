@@ -14,12 +14,12 @@ const URL_BASE = `https://${config.API_KEY}:${config.API_TOKEN}@${config.SHOP_UR
 // Request's order
 
 app.get("/", async(req, res) =>{
-    /*const response = await fetch(`${URL_BASE}admin/api/2021-10/orders.json?status=any`, {
+    const response = await fetch(`${URL_BASE}admin/api/2021-10/orders.json?status=any`, {
         method: 'GET'
     })
-    let data = await response.json()*/
+    let data = await response.json()  
 
-    res.send("Hola Mundo");
+    res.send(data);
 })
 
 app.listen(port, ()=>{
