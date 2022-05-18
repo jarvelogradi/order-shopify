@@ -13,8 +13,17 @@ const URL_BASE = `https://${config.API_KEY}:${config.API_TOKEN}@${config.SHOP_UR
 
 // Request's order
 
-app.get("/", async(req, res) =>{
+app.get("/orders", async(req, res) =>{
     const response = await fetch(`${URL_BASE}admin/api/2021-10/orders/count.json?status=any`, {
+        method: 'GET'
+    })
+    let data = await response.json()  
+
+    res.send(data);
+})
+
+app.get("/customers", async(req, res) =>{
+    const response = await fetch(`${URL_BASE}admin/api/2021-10/customers/count.json`, {
         method: 'GET'
     })
     let data = await response.json()  
